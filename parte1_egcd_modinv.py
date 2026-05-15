@@ -34,3 +34,15 @@ def modinv(e, phi):
             f"e={e} no es invertible modulo phi={phi} (gcd={g}, deben ser coprimos)"
         )
     return x % phi
+
+#Main de prueba
+if __name__ == "__main__":
+    # Prueba de egcd
+    a, b = 30, 21
+    g, x, y = egcd(a, b)
+    print(f"egcd({a}, {b}) -> gcd={g}, x={x}, y={y} (verificación: {a}*{x} + {b}*{y} = {g})")
+
+    # Prueba de modinv
+    e, phi = 17, 3120
+    d = modinv(e, phi)
+    print(f"modinv({e}, {phi}) -> d={d} (verificación: ({e} * {d}) % {phi} = {(e * d) % phi})")
